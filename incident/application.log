@@ -1,0 +1,26 @@
+2026-11-11T14:24:58Z INFO request_id=req-501 event=request_start route=/inventory/SKU-100
+2026-11-11T14:24:58Z INFO request_id=req-501 event=pool_acquire active=3 max=10
+2026-11-11T14:24:58Z INFO request_id=req-501 event=db_query_success sku=SKU-100
+2026-11-11T14:24:58Z INFO request_id=req-501 event=pool_release active=2 max=10
+2026-11-11T14:25:01Z INFO request_id=req-502 event=request_start route=/inventory/SKU-200
+2026-11-11T14:25:01Z INFO request_id=req-502 event=pool_acquire active=4 max=10
+2026-11-11T14:25:01Z INFO request_id=req-502 event=db_query_success sku=SKU-200
+2026-11-11T14:25:01Z INFO request_id=req-502 event=pool_release active=3 max=10
+2026-11-11T14:30:02Z INFO request_id=req-601 event=request_start route=/inventory/SKU-100
+2026-11-11T14:30:02Z INFO request_id=req-601 event=pool_acquire active=8 max=10
+2026-11-11T14:30:06Z ERROR request_id=req-601 event=db_query_timeout timeout_ms=4000
+2026-11-11T14:30:06Z WARN request_id=req-601 event=request_failed status=503 duration_ms=4004
+2026-11-11T14:30:07Z INFO request_id=req-602 event=request_start route=/inventory/SKU-200
+2026-11-11T14:30:07Z INFO request_id=req-602 event=pool_acquire active=9 max=10
+2026-11-11T14:30:11Z ERROR request_id=req-602 event=db_query_timeout timeout_ms=4000
+2026-11-11T14:30:11Z WARN request_id=req-602 event=request_failed status=503 duration_ms=4005
+2026-11-11T14:30:12Z INFO request_id=req-603 event=request_start route=/inventory/SKU-300
+2026-11-11T14:30:12Z INFO request_id=req-603 event=pool_acquire active=10 max=10
+2026-11-11T14:30:16Z ERROR request_id=req-603 event=db_query_timeout timeout_ms=4000
+2026-11-11T14:30:16Z WARN request_id=req-603 event=request_failed status=503 duration_ms=4007
+2026-11-11T14:30:17Z ERROR request_id=req-604 event=pool_acquire_rejected reason=pool_exhausted active=10 max=10
+2026-11-11T14:30:17Z WARN request_id=req-604 event=request_failed status=503 duration_ms=4802
+2026-11-11T14:35:03Z ERROR request_id=req-711 event=pool_acquire_rejected reason=pool_exhausted active=10 max=10
+2026-11-11T14:35:03Z WARN request_id=req-711 event=request_failed status=503 duration_ms=4901
+2026-11-11T14:40:08Z ERROR request_id=req-824 event=pool_acquire_rejected reason=pool_exhausted active=10 max=10
+2026-11-11T14:40:08Z WARN request_id=req-824 event=request_failed status=503 duration_ms=5002

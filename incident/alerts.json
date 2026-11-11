@@ -1,0 +1,32 @@
+{
+  "incident_id": "RR-INC-05",
+  "service": "inventory-api",
+  "timezone": "UTC",
+  "fired_at": "2026-11-11T14:31:20Z",
+  "severity": "critical",
+  "alerts": [
+    {
+      "name": "InventoryApiHighErrorRate",
+      "condition": "error_rate_pct > 10 for 2 minutes",
+      "observed": "36.2%",
+      "state": "firing"
+    },
+    {
+      "name": "InventoryApiHighP95Latency",
+      "condition": "p95_latency_ms > 1000 for 2 minutes",
+      "observed": "5100 ms",
+      "state": "firing"
+    },
+    {
+      "name": "DatabasePoolSaturation",
+      "condition": "pool_active / pool_max >= 0.90",
+      "observed": "10 / 10 (100%)",
+      "state": "firing"
+    }
+  ],
+  "context": {
+    "request_rate": "stable near 140 requests/minute",
+    "cpu_utilization": "approximately 30%",
+    "deployment": "no deployment recorded during the incident window"
+  }
+}

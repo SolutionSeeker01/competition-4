@@ -1,0 +1,29 @@
+name: Phase 4 - Monitoring and Recovery Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  incident-recovery:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run incident recovery tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify incident recovery and final flag
+        run: python verify_recovery.py

@@ -18,11 +18,14 @@ def lookup_inventory(sku, pool=None, simulate_timeout=False):
 
     connection = pool.acquire()
 
-    try:
-        if simulate_timeout:
-            raise DatabaseTimeout("inventory query exceeded 4 second timeout")
+    # INCIDENT:
+    # A timeout raises an exception before the connection is released.
+    # The release operation is currently reachable only on success.
 
-        return STOCK.get(sku, 0)
+    if simulate_timeout:
+        raise DatabaseTimeout("inventory query exceeded 4 second timeout")
 
-    finally:
-        pool.release(connection)
+    result = STOCK.get(sku, 0)
+    pool.release(connection)
+
+    return result
